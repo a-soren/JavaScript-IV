@@ -95,15 +95,26 @@ Prototype Refactor
   }
   
   
-  function Villain(villainAttributes){
-    Humanoid.call(this, villainAttributes);
-    this.power=villainAttributes.power;
-    this.pet=villainAttributes.pet;
+//   function Villain(villainAttributes){
+//     Humanoid.call(this, villainAttributes);
+//     this.power=villainAttributes.power;
+//     this.pet=villainAttributes.pet;
+//   }
+//    Villain.prototype=Object.create(Humanoid.prototype);
+//    Villain.prototype.magic=function(){
+//      return `${this.name} cast a spell using ${this.power}`;
+//    }
+
+  class Villain extends Humanoid{
+      constructor(villianAttributes){
+          super(villianAttributes);
+          this.power=villianAttributes.power;
+          this.pet=villianAttributes.pet;
+      }
+      magic(){
+          return `${this.name} cast a spell using ${this.power}`;
+      }
   }
-   Villain.prototype=Object.create(Humanoid.prototype);
-   Villain.prototype.magic=function(){
-     return `${this.name} cast a spell using ${this.power}`;
-   }
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
     * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
