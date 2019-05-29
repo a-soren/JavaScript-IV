@@ -24,13 +24,17 @@ Prototype Refactor
   * dimensions (These represent the character's size in the video game)
   * destroy() // prototype method that returns: `${this.name} was removed from the game.`
 */
-function GameObject(attribute){
-    this.createdAt=attribute.createdAt;
-    this.name=attribute.name;
-    this.dimensions=attribute.name;
-  }
-  GameObject.prototype.destroy=function(){
-    return `${this.name} was removed from the game`;
+
+
+  class GameObject{
+      constructor(attribute){
+          this.createdAt=attribute.createdAt;
+          this.name=attribute.name;
+          this.dimensions=attirbute.dimensions;
+      }
+      destroy(){
+          return `${this.name} was removed from the game`;
+      }
   }
   /*
     === CharacterStats ===
