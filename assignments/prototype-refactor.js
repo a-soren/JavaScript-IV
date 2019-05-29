@@ -71,17 +71,28 @@ Prototype Refactor
     * should inherit destroy() from GameObject through CharacterStats
     * should inherit takeDamage() from CharacterStats
   */
-   function Humanoid(humanAttributes){
-     CharacterStats.call(this, humanAttributes);
-     this.team=humanAttributes.team;
-     this.weapons=humanAttributes.weapons;
-     this.language=humanAttributes.language;
-   }
+//    function Humanoid(humanAttributes){
+//      CharacterStats.call(this, humanAttributes);
+//      this.team=humanAttributes.team;
+//      this.weapons=humanAttributes.weapons;
+//      this.language=humanAttributes.language;
+//    }
   
-   Humanoid.prototype=Object.create(CharacterStats.prototype);
-   Humanoid.prototype.greet=function(){
-     return `${this.name} offers a greeting in ${this.language}`;
-   };
+//    Humanoid.prototype=Object.create(CharacterStats.prototype);
+//    Humanoid.prototype.greet=function(){
+//      return `${this.name} offers a greeting in ${this.language}`;
+//    };
+  class Humanoid extends CharacterStats{
+      constructor(humanAttributes){
+          super(humanAttributes);
+          this.team=humanAttributes.team;
+          this.weapons=humanAttributes.weapons;
+          this.language=humanAttributes.language;
+      }
+      greet(){
+          return `${this.name} offers a greeting in ${this.language}`;
+      }
+  }
   
   
   function Villain(villainAttributes){
