@@ -7,23 +7,6 @@ Prototype Refactor
 2. Your goal is to refactor all of this code to use ES6 Classes. The console.log() statements should still return what is expected of them.
 
 */
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment you will be implementing several constructor functions with their correct inheritance hierarchy.
-
-  In this file you will be creating three constructor functions: GameObject, CharacterStats, Humanoid.  
-
-  At the bottom of this file are 3 objects that all end up inheriting from Humanoid.  Use the objects at the bottom of the page to test your constructor functions.
-  
-  Each constructor function has unique properties and methods that are defined in their block comments below:
-*/
-  
-/*
-  === GameObject ===
-  * createdAt
-  * name
-  * dimensions (These represent the character's size in the video game)
-  * destroy() // prototype method that returns: `${this.name} was removed from the game.`
-*/
 
 
   class GameObject{
@@ -36,20 +19,6 @@ Prototype Refactor
           return `${this.name} was removed from the game`;
       }
   }
-  /*
-    === CharacterStats ===
-    * healthPoints
-    * takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    * should inherit destroy() from GameObject's prototype
-  */
-//   function CharacterStats(charAttributes){
-//     GameObject.call(this, charAttributes);
-//     this.healthPoints=charAttributes.healthPoints;
-//   }
-//   CharacterStats.prototype=Object.create(GameObject.prototype);
-//   CharacterStats.prototype.takeDamage=function(){
-//     return `${this.name} took damage`;
-//   }
 
   class CharacterStats extends GameObject{
       constructor(charAttributes){
@@ -62,26 +31,6 @@ Prototype Refactor
 
   }
   
-  /*
-    === Humanoid (Having an appearance or character resembling that of a human.) ===
-    * team
-    * weapons
-    * language
-    * greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    * should inherit destroy() from GameObject through CharacterStats
-    * should inherit takeDamage() from CharacterStats
-  */
-//    function Humanoid(humanAttributes){
-//      CharacterStats.call(this, humanAttributes);
-//      this.team=humanAttributes.team;
-//      this.weapons=humanAttributes.weapons;
-//      this.language=humanAttributes.language;
-//    }
-  
-//    Humanoid.prototype=Object.create(CharacterStats.prototype);
-//    Humanoid.prototype.greet=function(){
-//      return `${this.name} offers a greeting in ${this.language}`;
-//    };
   class Humanoid extends CharacterStats{
       constructor(humanAttributes){
           super(humanAttributes);
@@ -94,17 +43,6 @@ Prototype Refactor
       }
   }
   
-  
-//   function Villain(villainAttributes){
-//     Humanoid.call(this, villainAttributes);
-//     this.power=villainAttributes.power;
-//     this.pet=villainAttributes.pet;
-//   }
-//    Villain.prototype=Object.create(Humanoid.prototype);
-//    Villain.prototype.magic=function(){
-//      return `${this.name} cast a spell using ${this.power}`;
-//    }
-
   class Villain extends Humanoid{
       constructor(villianAttributes){
           super(villianAttributes);
@@ -115,15 +53,7 @@ Prototype Refactor
           return `${this.name} cast a spell using ${this.power}`;
       }
   }
-  /*
-    * Inheritance chain: GameObject -> CharacterStats -> Humanoid
-    * Instances of Humanoid should have all of the same properties as CharacterStats and GameObject.
-    * Instances of CharacterStats should have all of the same properties as GameObject.
-  */
-  
-  // Test you work by un-commenting these 3 objects and the list of console logs below:
-  
-  
+
     const mage = new Humanoid({
       createdAt: new Date(),
       dimensions: {
