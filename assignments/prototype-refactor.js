@@ -42,13 +42,24 @@ Prototype Refactor
     * takeDamage() // prototype method -> returns the string '<object name> took damage.'
     * should inherit destroy() from GameObject's prototype
   */
-  function CharacterStats(charAttributes){
-    GameObject.call(this, charAttributes);
-    this.healthPoints=charAttributes.healthPoints;
-  }
-  CharacterStats.prototype=Object.create(GameObject.prototype);
-  CharacterStats.prototype.takeDamage=function(){
-    return `${this.name} took damage`;
+//   function CharacterStats(charAttributes){
+//     GameObject.call(this, charAttributes);
+//     this.healthPoints=charAttributes.healthPoints;
+//   }
+//   CharacterStats.prototype=Object.create(GameObject.prototype);
+//   CharacterStats.prototype.takeDamage=function(){
+//     return `${this.name} took damage`;
+//   }
+
+  class CharacterStats extends GameObject{
+      constructor(charAttributes){
+          super(charAttributes);
+          this.healthPoints=charAttributes.healthPoints;
+      }
+    takeDamage(){
+        return `${this.name} took damage`;
+    }
+
   }
   
   /*
