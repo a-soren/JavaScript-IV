@@ -56,3 +56,63 @@ class ProjectManagers extends Instructor{
         return `${name} debugs ${student.name}'s code on ${subject}`;
     }
 }
+
+
+
+const amber =new Person({
+    name: 'Amber',
+    age: 28,
+    location: 'California',
+  });
+  
+  console.log(amber.name);
+  console.log(amber.age);
+  console.log(amber.location);
+  console.log(amber.speak);
+  
+  const david =new Instructor({
+    name: 'David',
+    age:29,
+    location:'California',
+    specialty:'Welding',
+    favLanguage:'JavaScript',
+    catchPhrase:'Send it!',
+  
+  });
+  
+  console.log(david.specialty);
+  console.log(david.favLanguage);
+  console.log(david.catchPhrase);
+  
+  const wyatt= new Student({
+    name:'Wyatt',
+    age:25,
+    location:'California',
+    specialty:'Army',
+    favLanguage:'Spanish',
+    catchPhrase:'Epic!',
+    previousBackground:'Navy',
+    className:'Martial Arts',
+    favSubjects:'Science',
+  });
+  
+  console.log(wyatt.previousBackground);
+  console.log(wyatt.className);
+  console.log(wyatt.favSubjects);
+  console.log(wyatt.sprintChallenge);
+  
+  const max = new ProjectManagers({
+    name:'Max',
+    age:23,
+    location:'California',
+    specialty:'Chaos',
+    favLanguage:'gibberish',
+    catchPhrase:'My party House',
+    previousBackground:'chaos',
+    className:'destruction',
+    favSubjects:'Physical Education',
+    gradClassName:'Web12',
+    favInstructor:'Josh Knell',
+  });
+  console.log(max.gradClassName);
+  console.log(max.favInstructor);
